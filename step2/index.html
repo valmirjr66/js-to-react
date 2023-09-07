@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hello, World!</title>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/uuid@8.1.0/dist/umd/uuidv4.min.js"></script>
+
+  <script type="module">
+    function Quote({ value }) {
+      return React.createElement(
+        'h2',
+        { className: 'quote' },
+        React.createElement('span', null, value)
+      );
+    }
+
+    const rootElement = document.getElementById('root');
+
+    const quotes = [
+      "Educação não transforma o mundo. Educação muda as pessoas. Pessoas transformam o mundo.",
+      "Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção.",
+      "Se a educação sozinha não transforma a sociedade, sem ela tampouco a sociedade muda.",
+      "Ninguém educa ninguém, ninguém educa a si mesmo, os homens se educam entre si, mediatizados pelo mundo.",
+      "A leitura do mundo precede a leitura da palavra.",
+      "Se a educação sozinha não pode transformar a sociedade, tampouco sem ela a sociedade muda.",
+      "A educação é um ato de amor, por isso, um ato de coragem.",
+      "A escola não é a fábrica do conhecimento, mas a fábrica de aprender a pensar.",
+      "O diálogo é uma das mais extraordinárias formas de produção do conhecimento.",
+      "A verdadeira educação é aquela que se preocupa com a transformação do mundo."
+    ];
+
+    const elements = quotes.map(quote => {
+      return React.createElement(Quote, { value: '• "' + quote + '"', key: uuidv4() });
+    })
+
+    ReactDOM.createRoot(rootElement).render(elements);
+  </script>
+
+  <style>
+    .quote {
+      color: green;
+      margin-top: 30px;
+      font-family: Arial;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+  </div>
+</body>
+
+</html>
